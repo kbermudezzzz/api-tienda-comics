@@ -1,0 +1,183 @@
+:root {
+  --rosa: #b98388;
+  --rosa-oscuro: #a06d73;
+  --rosa-claro: #f3e4e2;
+  --nude: #ead9cc;
+  --nude-claro: #f7efe9;
+  --fondo: #fbf7f4;
+  --texto: #4a3b36;
+  --suave: #9a857c;
+  --borde: #eaded6;
+  --radio: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+.encabezado {
+  background: var(--nude-claro);
+  color: var(--texto);
+  text-align: center;
+  padding: 3rem 1rem 2.4rem;
+  border-bottom: 1px solid var(--borde);
+}
+.encabezado h1 {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  font-size: 2.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.encabezado p {
+  margin: 0.5rem 0 0;
+  color: var(--rosa);
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.contenedor {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  display: grid;
+  gap: 1.6rem;
+}
+
+.tarjeta {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1.6rem;
+}
+.tarjeta h2 {
+  margin-top: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--rosa-oscuro);
+}
+
+.dos-columnas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.6rem;
+  align-items: start;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--suave);
+}
+
+input, select {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  text-transform: none;
+  background: var(--fondo);
+  color: var(--texto);
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--rosa);
+  background: #fff;
+}
+
+button {
+  padding: 0.7rem 1.5rem;
+  border: 1px solid var(--rosa);
+  border-radius: 8px;
+  background: var(--rosa);
+  color: #fff;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover { background: var(--rosa-oscuro); border-color: var(--rosa-oscuro); }
+button.secundario {
+  background: transparent;
+  color: var(--rosa-oscuro);
+  border-color: var(--nude);
+}
+button.secundario:hover { background: var(--nude-claro); }
+
+.formulario { display: grid; gap: 1rem; }
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.contador {
+  color: var(--suave);
+  margin: 1.2rem 0 0.6rem;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.grid-comics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.comic {
+  background: var(--nude-claro);
+  border: 1px solid var(--borde);
+  border-top: 3px solid var(--rosa);
+  border-radius: var(--radio);
+  padding: 1.1rem;
+  transition: transform 0.2s;
+}
+.comic:hover { transform: translateY(-3px); }
+.comic h3 {
+  margin: 0 0 0.4rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--texto);
+}
+.comic p { margin: 0.15rem 0; font-size: 0.9rem; color: var(--suave); }
+.comic .precio {
+  margin-top: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--rosa-oscuro);
+}
+
+.vacio { grid-column: 1 / -1; text-align: center; color: var(--suave); }
+
+.mensaje {
+  margin: 0;
+  padding: 0.85rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+.mensaje[hidden] { display: none; }
+.mensaje.ok { background: #eef3ea; color: #55704d; border: 1px solid #cfdcc8; }
+.mensaje.error { background: var(--rosa-claro); color: #8a4a52; border: 1px solid #e3c3c3; }
