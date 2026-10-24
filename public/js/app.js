@@ -154,6 +154,12 @@ formComic.addEventListener("submit", async (evento) => {
     if (datos.anioPublicacion) datos.anioPublicacion = Number(datos.anioPublicacion);
     if (datos.stock) datos.stock = Number(datos.stock);
 
+    const errorValidacion = validarComic(datos);
+    if (errorValidacion) {
+      mostrarMensaje(errorValidacion, "error");
+      return;
+    }
+
     const comic = await crearComic(datos);
 
     mostrarMensaje(`Cómic "${comic.titulo}" guardado correctamente`);
@@ -198,3 +204,19 @@ filtroEditorial.addEventListener("change", async (evento) => {
     mostrarMensaje(error.message, "error");
   }
 });
+
+function validarComic(datos) {
+  if (!datos.titulo || datos.titulo.trim().length < 2) {
+    return "El título debe tener al menos 2 caracteres.";
+  }
+  if (!datos.precio || datos.precio <= 0) {
+    return "El precio debe ser mayor que cero.";
+  }
+  if (datos.anioPublicacion && datos.anioPublicacion > new Date().getFullYear()) {
+    return "El año de publicación no puede ser futuro.";
+  }
+  if (datos.stock !== undefined && datos.stock < 0) {
+    return "El stock no puede ser negativo.";
+  }
+  return null;
+}

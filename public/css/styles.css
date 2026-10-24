@@ -181,3 +181,14 @@ button.secundario:hover { background: var(--nude-claro); }
 .mensaje[hidden] { display: none; }
 .mensaje.ok { background: #eef3ea; color: #55704d; border: 1px solid #cfdcc8; }
 .mensaje.error { background: var(--rosa-claro); color: #8a4a52; border: 1px solid #e3c3c3; }
+
+.mensaje {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: min(92%, 420px);
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(74, 59, 54, 0.15);
+}
